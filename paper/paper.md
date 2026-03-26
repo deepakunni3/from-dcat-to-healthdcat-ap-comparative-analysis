@@ -23,9 +23,9 @@ affiliations:
 date: 26 March 2026
 cito-bibliography: paper.bib
 event: SWAT4HCLS2026
-biohackathon_name: "SWAT4HCLS BioHackathon 2026"
-biohackathon_url:   "https://www.swat4ls.org/workshops/amsterdam2026/swat4hcls-biohackathon-2026/"
-biohackathon_location: "Amsterdam, Netherlands, 2026"
+biohackathon_name: "SWAT4HCLS Biohackathon 2026"
+biohackathon_url: "https://www.swat4ls.org/swat4hcls-biohackathon-2026/"
+biohackathon_location: "Amsterdam, The Netherlands"
 # URL to project git repo --- should contain the actual paper.md:
 git_url: https://github.com/deepakunni3/from-dcat-to-healthdcat-ap-comparative-analysis
 # This is the short authors description that is used at the
