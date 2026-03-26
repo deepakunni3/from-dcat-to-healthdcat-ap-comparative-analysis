@@ -1,245 +1,104 @@
 ---
-title: 'BioHackEU23 report: Template for the very long title'
-title_short: 'BioHackEU23 #26: unknown chemical substances'
+title: 'SWAT4HCLS 2026 Biohackathon report: From DCAT to HealthDCAT-AP - Comparative Analysis of National Healthcare Metadata Catalog Schemas to Enable Federated Interoperability in Europe'
+title_short: 'SWAT4HCLS 2026 Biohackathon report: From DCAT to HealthDCAT-AP - A Comparative Analysis'
 tags:
-  - cheminformatics
-  - PubChem
-  - unknown chemical substances
+  - data catalog
+  - metadata schema
+  - dcat
+  - dcat-ap
+  - healthdcat-ap
 authors:
-  - name: First Author
+  - name: Vasundra Touré
+    orcid: 0000-0003-4639-4431
     affiliation: 1
-    role: Writing – original draft
-  - name: Last Author
-    orcid: 0000-0000-0000-0000
-    affiliation: 2
-    role: Conceptualization, Writing – review & editing
+    role: Conceptualization, Writing
+  - name: Deepak Unni
+    orcid: 0000-0002-3583-7340
+    affiliation: 1
+    role: Conceptualization, Writing
 affiliations:
-  - name: First Affiliation
+  - name: SIB Swiss Institute of Bioinformatics, Basel, Switzerland
+    ror: 002n09z45
     index: 1
-  - name: ELIXIR Europe
-    ror: 044rwnt51
-    index: 2
-date: 8 November 2023
+date: 26 March 2026
 cito-bibliography: paper.bib
-event: BH23EU
-biohackathon_name: "BioHackathon Europe 2023"
-biohackathon_url:   "https://biohackathon-europe.org/"
-biohackathon_location: "Barcelona, Spain, 2023"
-group: Project 26
+event: SWAT4HCLS2026
+biohackathon_name: "SWAT4HCLS BioHackathon 2026"
+biohackathon_url:   "https://www.swat4ls.org/workshops/amsterdam2026/swat4hcls-biohackathon-2026/"
+biohackathon_location: "Amsterdam, Netherlands, 2026"
 # URL to project git repo --- should contain the actual paper.md:
-git_url: https://github.com/biohackrxiv/publication-template
+git_url: https://github.com/deepakunni3/from-dcat-to-healthdcat-ap-comparative-analysis
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: First Author \emph{et al.}
+authors_short: Vasundra Touré \emph{et al.}
 ---
+
+# Abstract
+
+This project explores the landscape of healthcare metadata catalogs across Europe by comparing their underlying schemas. Participants will analyze similarities and differences among national implementations of DCAT-AP and HealthDCAT-AP, identifying both standardized areas and opportunities for improvement.
+
+The work responds to challenges in discoverability and interoperability of healthcare datasets caused by divergent metadata standards and national adaptations. By collecting and examining schemas from multiple European initiatives, participants will map structural differences, overlapping concepts, and missing terms using established comparison frameworks and mapping tools.
+
+Expected outputs include a comparative overview of healthcare metadata schemas, visual maps, gap analyses, and concrete recommendations for harmonization, potentially including a minimal convergent metadata schema. All results will be made openly accessible and collated for publication following the hackathon.
 
 
 # Introduction
 
-As part of the BioHackathon Europe 2023, we here report...
+## Scope and Coverage
 
-## Meeting information
+The comparative analysis encompasses seven metadata schemas and specifications. Together, they represent a cross-section of European and international initiatives aimed at making health and research data more discoverable, interoperable, and reusable.
 
-If you want to submit a preprint to BioHackrXiv, first check if your meeting is registered. You can find a list
-of meetings [here](https://index.biohackrxiv.org/meetings). If your meeting is missing, please contact your meeting
-organizers. The above list also provides information on the YAML fields with information about the meeting.
+- [Data Catalog Application Profile (DCAT-AP) 3.0](https://semiceu.github.io/DCAT-AP/releases/3.0.0/): The foundational European application profile of W3C DCAT, maintained by the EU Publications Office and SEMIC. It defines a common vocabulary for describing public sector data catalogs and datasets across EU member states, serving as the baseline from which most domain-specific profiles in this comparison are derived.
 
-The following fields need to be given:
+- [HealthDCAT Application Profile (HealthDCAT-AP) Release 6](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/index.html): A health-domain extension of DCAT-AP developed under the European Health Data Space (EHDS) initiative. It introduces health-specific metadata requirements such as population coverage, data sensitivity, coding systems used, and regulatory compliance attributes relevant to secondary use of health data.
 
-```YAML
-biohackathon_name: "BioHackathon Europe 2023"
-biohackathon_url:   "https://biohackathon-europe.org/"
-biohackathon_location: "Barcelona, Spain, 2023"
-group: Project 26
-git_url: https://github.com/yourOrganization/your_report_repo
-```
+- [DCAT Application Profile for Switzerland (DCAT-AP CH) 3.0](https://www.dcat-ap.ch/releases/v3/3.0.0.html): The Swiss national adaptation of DCAT-AP, aligned with opendata.swiss and the Federal Statistical Office requirements. While largely conformant with DCAT-AP, it introduces Swiss-specific controlled vocabularies, multilingual support obligations (DE, FR, IT, RM), and national governance constraints.
 
-The [BioHackrXiv meeting pages](https://index.biohackrxiv.org/meetings) provide content to use for the first
-three fields. The `git_url:` field must have the link to the GitHub repository with your preprint (draft).
+- [FAIR Data Point specification v1.2](https://specs.fairdatapoint.org/fdp-specs-v1.2.html): A community-driven specification for exposing machine-readable, FAIR-compliant metadata via a standardized REST API. Built on DCAT and Dublin Core, FDP defines a layered metadata model and places particular emphasis on automated discoverability and FAIR principle compliance as first-class requirements.
 
-## Author information
+- [HealthRI Metadata Schema 2.0](https://github.com/Health-RI/health-ri-metadata): Developed by Health-RI, the Dutch national health data infrastructure. This schema extends DCAT-AP and HealthDCAT-AP to support interoperability across Dutch health research cohorts, biobanks, and registries, with a focus on findability within federated health data networks.
 
-Information about the authors is given in the [YAML](https://en.wikipedia.org/wiki/YAML) format at the top of this template.
-For authors you provide their names, their affiliations. That is the minimum, but as BioHackrXiv is moving to a situation
-where more metadata is shared, and used by, for example, EuropePMC, adding additional information ie encouraged.
+- [SPHN Metacat Schema 0.1.0](https://sphn.gitlab.io/sphn-metacat-schema/): A metadata catalog schema developed within the Swiss Personalized Health Network (SPHN) for the SPHN Metadata Catalog. It is designed to describe clinical and biomedical catalogs and datasets while leveraging DCAT and HealthDCAT-AP.
 
-BioHackathons is about hacking together, and the minimal number of authors for reports is two. This makes a minimal example
-look like this:
-
-```yaml
-authors:
-  - name: First Author
-    affiliation: 1
-  - name: Last Author
-    affiliation: 2
-affiliations:
-  - name: First Affiliation
-    index: 1
-  - name: ELIXIR Europe
-    index: 2
-```
-
-### Author identifiers
-
-Ideally, authors provide their [ORCID](https://orcid.org/) identifier. For affiliations, It is added with the `orcid:` field.
-So, and author record would look like this:
-
-```yaml
-authors:
-  - name: First Author
-    affiliation: 1
-    orcid: 0000-0000-0000-0000
-```
-
-### Research Organization Registry identifiers
-
-Matching the author identifier, the affiliations can be further specified with the
-[Research Organization Registry](https://ror.org/) (ROR) identifier.
-For example, this is the affiliation identifier can be added with the `ror:` field:
-
-```yaml
-affiliations:
-  - name: ELIXIR Europe
-    ror: 044rwnt51
-    index: 2
-```
-
-### Contributor Role Taxonomy
-
-A last feature since is minimal support for the Contributor Role Taxonomy (CRediT). You
-can specify the role of authors in writing the report with the `role:` field. However,
-the authors are responsible for selection the right terms from [CRediT](https://credit.niso.org/).
-An example looks like this:
-
-```yaml
-authors:
-  - name: First Author
-    affiliation: 1
-    orcid: 0000-0000-0000-0000
-    role: Conceptualization, Writing – review & editing
-```
-
-### A full examples
-
-A full example then has this structure:
-
-```yaml
-authors:
-  - name: First Author
-    affiliation: 1
-    role: Writing – original draft
-  - name: Last Author
-    orcid: 0000-0000-0000-0000
-    affiliation: 2
-    role: Conceptualization, Writing – review & editing
-affiliations:
-  - name: First Affiliation
-    index: 1
-  - name: ELIXIR Europe
-    ror: 044rwnt51
-    index: 2
-```
-
-# Formatting
-
-This document use Markdown and you can look at [this tutorial](https://www.markdowntutorial.com/).
-
-## Subsection level 2
-
-Please keep sections to a maximum of only two levels.
-
-## Tables
-
-Tables can be added in the following way, though alternatives are possible:
-
-```markdown
-Table: Note that table caption is automatically numbered and should be
-given before the table itself.
-
-| Header 1 | Header 2 |
-| -------- | -------- |
-| item 1 | item 2 |
-| item 3 | item 4 |
-```
-
-This gives:
-
-Table: Note that table caption is automatically numbered and should be
-given before the table itself.
-
-| Header 1 | Header 2 |
-| -------- | -------- |
-| item 1 | item 2 |
-| item 3 | item 4 |
-
-## Figures
-
-A figure is added with:
-
-```markdown
-![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
-```
-
-This gives:
-
-![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
-
-Figures can be scaled by adding the width or height to the Markdown like this:
-
-```markdown
-![Caption for BioHackrXiv logo figure](./biohackrxiv.png){ width=50px }
-```
-
-# Other main section on your manuscript level 1
-
-Lists can be added with:
-
-1. Item 1
-2. Item 2
-
-# Citation Typing Ontology annotation
-
-You can use [CiTO](http://purl.org/spar/cito/2018-02-12) annotations, as explained in [this BioHackathon Europe 2021 write up](https://raw.githubusercontent.com/biohackrxiv/bhxiv-metadata/main/doc/elixir_biohackathon2021/paper.md) and [this CiTO Pilot](https://www.biomedcentral.com/collections/cito).
-Using this template, you can cite an article and indicate _why_ you cite that article, for instance DisGeNET-RDF [@citesAsAuthority:Queralt2016].
-
-The syntax in Markdown is as follows: a single intention annotation looks like
-`[@usesMethodIn:Krewinkel2017]`; two or more intentions are separated
-with colons, like `[@extends:discusses:Nielsen2017Scholia]`. When you cite two
-different articles, you use this syntax: `[@citesAsDataSource:Ammar2022ETL; @citesAsDataSource:Arend2022BioHackEU22]`.
-
-Possible CiTO typing annotation include:
-
-* citesAsDataSource: when you point the reader to a source of data which may explain a claim
-* usesDataFrom: when you reuse somehow (and elaborate on) the data in the cited entity
-* usesMethodIn
-* citesAsAuthority
-* citesAsEvidence
-* citesAsPotentialSolution
-* citesAsRecommendedReading
-* citesAsRelated
-* citesAsSourceDocument
-* citesForInformation
-* confirms
-* documents
-* providesDataFor
-* obtainsSupportFrom
-* discusses
-* extends
-* agreesWith
-* disagreesWith
-* updates
-* citation: generic citation
+- [NFDI4Health Metadata Schema v3.3](https://doi.org/10.4126/FRL01-006472531): Developed by the National Research Data Infrastructure for Personal Health Data in Germany (NFDI4Health). The schema targets epidemiological studies, clinical trials, and public health datasets, with rich provenance, study design, and data collection attributes that go beyond standard catalog metadata.
 
 
-# Results
+## Comparative Analysis
+
+The comparative analysis was performed to identify and document alignment at three levels:
+
+1. **Structure:** Identification of top-level structural patterns across schemas including how metadata is organized into classes or sections (e.g., catalog-level vs. dataset-level vs. distribution-level), and whether a hierarchical or flat model is employed. This level of analysis reveals whether schemas share a common architecture, regardless of differences in field naming or vocabulary.
+
+2. **Fields:** Identification of metadata fields that are semantically identical, functionally equivalent, or partially overlapping across schemas. This includes mapping fields with different labels that capture the same information (e.g., `dct:title`, `schema:name`, and `rdfs:label` as title representations), as well as identifying fields that are present in some schemas but absent in others, which may indicate domain-specific requirements or gaps in cross-schema coverage.
+
+3. **Value space:** Identification of similarities and divergences in the allowed values for fields that have been determined to be identical or equivalent at the field level. This includes comparison of controlled vocabularies, ontologies, coding systems (e.g., ICD-10-GM, SNOMED CT, LOINC), and enumerated value sets, as well as the degree to which these are formally specified, loosely recommended, or left to the implementers.
 
 
-# Discussion
+## Results
 
-...
+### Review of metadata schemas
+
+We began with a systematic review of all seven metadata schemas, examining their structure. The first step was to identify which schemas share common structure, as this directly determines the feasibility and granularity of cross-schema alignment.
+
+Six of the seven schemas, DCAT-AP 3.0, HealthDCAT-AP, DCAT-AP CH, FAIR Data Point, HealthRI, and SPHN Metacat Schema, are grounded in the W3C Data Catalog Vocabulary (DCAT), either as direct application profiles or as extensions. This shared lineage means they all organize metadata around a common set of core classes:
+
+- **`dcat:Catalog`**: Describes the data catalog itself: its publisher, coverage, licensing, and the datasets it contains.
+- **`dcat:Dataset`**: The primary unit of description, capturing what the data is, who produced it, under what conditions it was collected, and how it can be accessed.
+- **`dcat:Distribution`**: Describes a specific, accessible form or serialization of a dataset, including format, access URL, and license information.
+
+Beyond these three core classes, most DCAT-based profiles in this comparison also make use of supporting classes such as `dcat:DataService`, `foaf:Agent` (for publisher and creator description), `dct:Location` (for spatial coverage), and `dct:PeriodOfTime` (for temporal coverage). The degree to which these supporting classes are required, recommended, or optional varies across profiles and constitutes one of the key axes of structural divergence examined in this analysis.
+
+The NFDI4Health Metadata Schema v3.3 stands apart as the only schema in this comparison that is not derived from DCAT. It follows an independent structural model tailored to the specific requirements. While some NFDI4Health fields are semantically mappable to DCAT-AP equivalents, the structural mismatch requires a different alignment strategy.
+
+
+### Mapping of metadata fields across schemas
+
+
+### Querying via shared metadata fields
+
+## Discussion
+
 
 ## Acknowledgements
-
-...
 
 ## References
