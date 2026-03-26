@@ -17,32 +17,32 @@ YAML code with metadata. It is important to get this part correct, because other
 generation will fail. The metadata looks like this:
 
 ```yaml
-title: 'BioHackEU22 Report for Project 26: Shedding the light on unknown chemical substances'
-title_short: 'BioHackEU22 #26: unknown chemical substances'
+title: 'BioHackSWAT4HCLS Report for Project <name>: <titl>'
+title_short: 'BioHackSWAT4HCLS #26: <short title>'
 tags:
-  - cheminformatics
-  - PubChem
-  - unknown chemical substances
+  - <keyword1>
+  - <keyword2>
+  - <keyword3>
 authors:
-  - name: Egon Willighagen
-    orcid: 0000-0001-7542-0286
+  - name: <Author Name>
+    orcid: <Orcid>
     affiliation: 1
 affiliations:
-  - name: Dept of Bioinformatics - BiGCaT, NUTRIM, FHML, Maastricht University, Maastricht, NL
-    ror: 02jz4aj89
+  - name: <affiliation>
+    ror: <ror>
     index: 1
-date: 7 November 2022
+date: 26 March 2026
 cito-bibliography: paper.bib
-event: BH22EU
-biohackathon_name: "BioHackathon Europe 2022"
-biohackathon_url:   "https://biohackathon-europe.org/"
-biohackathon_location: "Paris, France, 2022"
-group: Unknown chemical substances group
+event: BHSWAT4HCLS26
+biohackathon_name: "BioHackathon SWAT4HCLS 2026"
+biohackathon_url:   "https://www.swat4ls.org/workshops/amsterdam2026/swat4hcls-biohackathon-2026/"
+biohackathon_location: "Amsterdam, the Netherlands, 2026"
+group: <group name>
 # URL to project git repo --- should contain the actual paper.md:
-git_url: https://github.com/biohackrxiv/publication-template
+git_url: https://github.com/SWAT4HCLS/publication-template-26
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: Egon Willighagen \emph{et al.}
+authors_short: <Name> \emph{et al.}
 ```
 
 ### Which metadata to update?
@@ -64,15 +64,6 @@ Particularly important to update is the following field, which should point to
 your clone of the template, instead of the template itself:
 
 * git_url: https://github.com/biohackrxiv/publication-template
-
-#### Only update for other BioHackathons
-
-The following fields should only be changed if you are not writing for the BioHackathon Europe 2022:
-
-* event: BH22EU
-* biohackathon_name: "BioHackathon Europe 2022"
-* biohackathon_url:   "https://biohackathon-europe.org/"
-* biohackathon_location: "Paris, France, 2022"
 
 ## Step 3: Writing the article
 
